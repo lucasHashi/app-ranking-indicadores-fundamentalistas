@@ -2,6 +2,7 @@ import pandas as pd
 from pprint import pprint
 
 ARQUIVO_DADOS = 'dados_oceans_status.csv'
+ARQUIVO_DADOS = 'https://raw.githubusercontent.com/lucasHashi/coleta-dados-fundamentalistas/master/dados_oceans_status.csv'
 
 def somar_posicoes(df_rank, list_indicadores):
     linhas_posi = []
@@ -93,7 +94,7 @@ def analisar_indicadores(lista_indicadores, ano):
     
     df_final = calcular_ranking(df_indicadores, lista_duplas, ano)
 
-    df_final['posi_normalizada'] = round((100*df_final['soma_posi'])/(len(df_final)*len(indicadores)),2)
+    df_final['posi_normalizada'] = round((100*df_final['soma_posi'])/(len(df_final)*len(lista_indicadores)),2)
 
     colunas_certas = list(df_final.columns)
     colunas_certas.remove('ano')
